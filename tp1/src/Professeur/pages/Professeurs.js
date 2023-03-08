@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import ListeProfesseurs from "../components/ListeProfesseurs";
+import NouveauProfesseur from "../components/NouveauProfesseur";
 
 function Professeurs() {
-    const professeurs = [
-        {
-            id: "p1",
-            nom: "Sarah Kessi",
-            cours: 4,
-        },
-    ];
-    return <ListeProfesseurs professeurs={professeurs} />;
+  
+  return (
+    <div style={{
+        textAlign: "center"
+    }}>
+    </div>
+  );
 }
 
 export default Professeurs;
