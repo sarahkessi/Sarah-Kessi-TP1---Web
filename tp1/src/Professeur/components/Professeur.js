@@ -16,7 +16,7 @@ function Professeur({professeur}) {
                     </div>
 
                     <div className="user-item__info">
-                        <h2>{professeur.nom}</h2>
+                        <h2>{professeur.prenom} {professeur.nom}</h2>
                         <h3>{professeur.cours}</h3>
                         <h3>{professeur.embauche}</h3>
                     </div>

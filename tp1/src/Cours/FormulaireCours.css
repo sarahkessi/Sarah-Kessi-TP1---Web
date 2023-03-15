@@ -1,0 +1,95 @@
+.button {
+  background-color: #ffffff;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 10px 10px;
+  text-align: center;
+  justify-content: center;
+  display:flex;
+  font-size: 16px;
+  margin-top: 100px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  border-radius: 10em;
+  width:max-content;
+}
+
+.button:hover {
+  background-color: #c0a0df;
+}
+
+.input1 {
+    border: 2px solid rgb(220, 172, 235);
+    text-align: center;
+    margin-right: 20px;
+    margin-left: 20px;
+    height: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 200px;
+
+  }
+
+  .input2 {
+    border: 2px solid rgb(220, 172, 235);
+    text-align: center;
+    margin-right: 20px;
+    margin-left: 20px;
+    height: 30px;
+    margin-bottom: 10px;
+    width: 200px;
+  }
+
+  .input3 {
+    border: 2px solid rgb(220, 172, 235);
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 30px;
+    margin-bottom: 20px;
+    width: 200px;
+
+  }
+
+  .input4 {
+    border: 2px solid rgb(220, 172, 235);
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 5px;
+    height: 30px;
+    margin-bottom: 20px;
+    width: 200px;
+
+  }
+
+  .div {
+    width:800px;
+    border: 2px solid white;
+    align-items: center;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 125px;
+    width: 900px;
+    text-align: center;
+    justify-content:space-evenly;
+  }
+
+  .div2 {
+    float: left;
+  }
+
+  .label1 {
+    margin-left: 50px;
+
+  }
+
+  .label2 {
+    margin-left: 20px;
+  }
+
+  .label3 {
+   margin-right: 22px;
+  }
+   

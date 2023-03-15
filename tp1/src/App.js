@@ -12,22 +12,45 @@ import MainNavigation from "./shared/Navigation/MainNavigation";
 import NouveauProfesseur from "./Professeur/components/NouveauProfesseur";
 import ListeProfesseurs from "./Professeur/components/ListeProfesseurs";
 
-function App() {
+import ListeCours from "./Cours/ListeCours";
+import FormulaireCours from "./Cours/FormulaireCours";
 
-  const [professeurs, setProfesseur] = useState([
+import EtudiantsCours from "./Etudiants/EtudiantsCours";
+import NouvelEtudiant from "./Etudiants/NouvelEtudiant";
+import ListeEtudiants from "./Etudiants/ListeEtudiants";
+
+
+
+function App() {
+  const COURS = [
     {
-      id: "cg1",
-      nom: "Sarah Kessi",
-      image:
-        "https://www.chumontreal.qc.ca/sites/default/files/styles/researcher_17_20_desktop/public/guy-pare_5.jpeg?itok=X85zRA1v",
-      cours: "Web et base de données",
-      embauche: "5 mars 2023",
+      id: "c1",
+      titre: "Web et base de données",
+      professeur: "Sarah Kessi",
+      discipline: "informatique",
+      nbMaxEtudiants: "30",
+      dateDebut: new Date(2023, 1, 1),
+      dateFin: new Date(2023, 6, 6),
     },
-  ]);
+  ];
+  
+  const [professeurs, setProfesseur] = useState([]);
+
+  const [cours, setCours] = useState([]);
+
+  const [etudiants, setEtudiant] = useState([])
 
   function ajouterProfesseur(nouveauProfesseur) {
     setProfesseur(() => professeurs.concat(nouveauProfesseur)); // Crée une copie du tableau avec la nouvelle valeur
     //objectifsCours.push(nouvelObjectif);
+  }
+
+  function ajouterCours(nouveauCours) {
+    setCours(() => cours.concat(nouveauCours));
+  }
+
+  function ajouterEtudiant(nouvelEtudiant) {
+    setEtudiant(() => etudiants.concat(nouvelEtudiant));
   }
   return (
     <Router>
@@ -39,10 +62,21 @@ function App() {
           </Route>
           <Route path="/Professeurs" exact>
             <div>
-            <Professeurs />
-            <NouveauProfesseur ajouterProfesseur={ajouterProfesseur} />
-            <ListeProfesseurs professeurs={professeurs} />
-            </div>        
+              <Professeurs />
+              <NouveauProfesseur ajouterProfesseur={ajouterProfesseur} />
+              <ListeProfesseurs professeurs={professeurs} />
+            </div>
+          </Route>
+          <Route path="/Cours" excat>
+            <div>
+              <FormulaireCours ajouterCours={ajouterCours} />
+              <ListeCours cours={cours} />
+            </div>
+          </Route>
+          <Route path="/:coursId/etudiants" exact>
+            <EtudiantsCours />
+            <NouvelEtudiant ajouterEtudiant={ajouterEtudiant}/>
+            <ListeEtudiants etudiants={etudiants}/>
           </Route>
           <Redirect to="/" />
         </Switch>

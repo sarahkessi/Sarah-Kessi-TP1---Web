@@ -23,7 +23,7 @@ function Accueil() {
       <p className="texte">
         Ce site vous permet de consulter la liste des professeurs ainsi que les
         cours donnés à travers le menu de navigation. Il permet aussi
-        d'embaucher des professeurs et d'ajouter des étudiants
+        d'embaucher des professeurs, d'ajouter des cours et d'ajouter des étudiants
         dans un cours spécifique.{" "}
       </p>
     </div>
