@@ -1,24 +1,46 @@
 import React, { useState } from "react";
-import EtudiantsCours from "./EtudiantsCours";
-import ListeEtudiants from "./ListeEtudiants";
+
 import { ETUDIANTS } from "./EtudiantsCours";
 
+import "./NouvelEtudiant.css";
 function NouvelEtudiant({ ajouterEtudiant }) {
   const [saisieAdmission, setAdmission] = useState("");
   const [saisiePrenom, setPrenom] = useState("");
   const [saisieNom, setNom] = useState("");
 
-  function ajouterNouvelEtudiantfHandler(event) {
-      event.preventDefault();
-      const nouvelEtudiant = {
-        noAdmission: saisieAdmission,
-        prenom: saisiePrenom,
-        nom: saisieNom,
-      };
+  function ajouterNouvelEtudiantHandler(event) {
+    event.preventDefault();
+    const nouvelEtudiant = {
+      noAdmission: saisieAdmission,
+      prenom: saisiePrenom,
+      nom: saisieNom,
+    };
+
     
 
-    ajouterEtudiant(nouvelEtudiant);
-    //addObj(saisieAdmission);
+    if (saisieNom === "") {
+      alert("Veuillez entrer un nom");
+      return;
+    }
+
+    if (saisiePrenom === "") {
+      alert("Veuillez entrer un prénom");
+      return;
+    }
+
+    if (saisieAdmission === "") {
+      alert("Veuillez entrer un numéro d'admission");
+      return;
+    }
+
+  
+    if (ETUDIANTS.some(etudiant => etudiant.noAdmission === saisieAdmission)) {
+     alert("Cet étudiant est déjà inscrit");
+      return;
+    }
+
+    ajouterEtudiant(nouvelEtudiant); 
+    ETUDIANTS.push(nouvelEtudiant);
     setAdmission("");
     setPrenom("");
     setNom("");
@@ -37,16 +59,18 @@ function NouvelEtudiant({ ajouterEtudiant }) {
   }
 
   return (
-    <form onSubmit={ajouterNouvelEtudiantfHandler}>
-      <div>
+    <form onSubmit={ajouterNouvelEtudiantHandler}>
+      <div className="wrapper">
         <input
-          type="number"
+          className="input1"
+          type="text"
           onChange={saisieAdmissionHandler}
           placeHolder="Numéro d'admission"
           value={saisieAdmission}
         />
 
         <input
+          className="input2"
           type="text"
           onChange={saisiePrenomHandler}
           placeHolder="Prénom"
@@ -54,13 +78,16 @@ function NouvelEtudiant({ ajouterEtudiant }) {
         />
 
         <input
+          className="input2"
           type="text"
           onChange={saisieNomHandler}
           placeHolder="Nom"
           value={saisieNom}
         />
 
-        <button type="submit">Ajouter Étudiant</button>
+        <button  className="buttonEleve" type="submit">
+          Ajouter Étudiant
+        </button>
       </div>
     </form>
   );
